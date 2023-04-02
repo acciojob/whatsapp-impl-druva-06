@@ -31,6 +31,7 @@ public class WhatsappRepository {
     public String createUser(String name,String mobile) throws Exception {
         if(userMobile.contains(mobile)) throw new Exception("User already exists");
         userMobile.add(mobile);
+        System.out.println(userMobile.size());
         return "SUCCESS";
     }
 
@@ -51,7 +52,7 @@ public class WhatsappRepository {
     public int createMessage(String content) {
         messageId++;
         Date date = new Date();
-        new Message(messageId,content,date);
+        new Message(messageId,content);
         return messageId;
     }
 
@@ -81,4 +82,5 @@ public class WhatsappRepository {
         groupUserMap.get(group).set(0,user);
         return "SUCCESS";
     }
+
 }
